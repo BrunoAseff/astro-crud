@@ -1,0 +1,68 @@
+CREATE DATABASE IF NOT EXISTS astro_db;
+USE astro_db;
+
+CREATE TABLE GALAXIAS (
+ id_galaxia INT AUTO_INCREMENT PRIMARY KEY,
+ nome VARCHAR(100) NOT NULL UNIQUE,
+ tipo VARCHAR(50),
+ distancia_terra DECIMAL(20,4)
+);
+
+CREATE TABLE PLANETAS (
+ id_planeta INT AUTO_INCREMENT PRIMARY KEY,
+ nome VARCHAR(100) NOT NULL,
+ gravidade DECIMAL(10,4),
+ habitavel BOOLEAN NOT NULL,
+ id_galaxia INT NOT NULL,
+ FOREIGN KEY (id_galaxia) REFERENCES GALAXIAS(id_galaxia)
+);
+
+CREATE TABLE ELEMENTOS (
+ id_elemento INT AUTO_INCREMENT PRIMARY KEY,
+ nome_elemento VARCHAR(50) NOT NULL UNIQUE,
+ sigla_elemento VARCHAR(3) NOT NULL UNIQUE
+);
+
+CREATE TABLE PLANETA_ELEMENTOS (
+ id_planeta INT,
+ id_elemento INT,
+ PRIMARY KEY (id_planeta, id_elemento),
+ FOREIGN KEY (id_planeta) REFERENCES PLANETAS(id_planeta),
+ FOREIGN KEY (id_elemento) REFERENCES ELEMENTOS(id_elemento)
+);
+
+CREATE TABLE ESTRELAS (
+ id_estrela INT AUTO_INCREMENT PRIMARY KEY,
+ nome VARCHAR(100) NOT NULL UNIQUE,
+ tipo VARCHAR(50),
+ magnitude DECIMAL(5,2),
+ id_galaxia INT NOT NULL,
+ FOREIGN KEY (id_galaxia) REFERENCES GALAXIAS(id_galaxia)
+);
+
+CREATE TABLE AGLOMERADOS (
+ id_aglomerado INT AUTO_INCREMENT PRIMARY KEY,
+ nome VARCHAR(100) NOT NULL UNIQUE,
+ tipo VARCHAR(50),
+ distancia_terra DECIMAL(20,4),
+ id_galaxia INT NOT NULL,
+ FOREIGN KEY (id_galaxia) REFERENCES GALAXIAS(id_galaxia)
+);
+
+CREATE TABLE NEBULOSAS (
+ id_nebulosa INT AUTO_INCREMENT PRIMARY KEY,
+ nome VARCHAR(100) NOT NULL UNIQUE,
+ tipo VARCHAR(50),
+ distancia_terra DECIMAL(20,4),
+ id_galaxia INT NOT NULL,
+ FOREIGN KEY (id_galaxia) REFERENCES NEBULOSAS(id_nebulosa)
+);
+
+CREATE TABLE EXOPLANETAS (
+ id_exoplaneta INT AUTO_INCREMENT PRIMARY KEY,
+ nome VARCHAR(100) NOT NULL,
+ massa DECIMAL(10,4),
+ raio DECIMAL(10,4),
+ id_estrela INT NOT NULL,
+ FOREIGN KEY (id_estrela) REFERENCES ESTRELAS(id_estrela)
+); 
