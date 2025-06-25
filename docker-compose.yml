@@ -10,6 +10,4 @@ services:
       MYSQL_USER: astrouser
       MYSQL_PASSWORD: astropassword
     ports:
-      - "3306:3306"
-    volumes:
-      - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - '3306:3306'
