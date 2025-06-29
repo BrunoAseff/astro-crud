@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 
-import { Container, Title, Grid, Table } from '@mantine/core';
+import { Container, Grid, Table } from '@mantine/core';
 import { ActionButtons } from './ActionButtons';
 import { DataCard } from './DataCard';
 import * as api from '../services/api';
@@ -264,9 +264,6 @@ const cardConfigs: CardConfig<any>[] = [
 export function Dashboard() {
  return (
    <Container fluid style={{ minHeight: '100vh', padding: '1rem' }}>
-     <Title order={1} ta="center" my="xl">
-       AstroCRUD
-     </Title>
      <ActionButtons />
 
 
