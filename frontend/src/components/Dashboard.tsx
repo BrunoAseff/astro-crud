@@ -38,15 +38,8 @@ const cardConfigs: CardConfig<any>[] = [
          queryKey: ['galaxiesCount'],
          queryFn: api.getGalaxiesCount,
          title: 'Total',
-         render: (data?: any) => data?.total?.toString() ?? 'N/A',
-       },
-       {
-         queryKey: ['galaxiesWithStats'],
-         queryFn: api.getGalaxiesWithStats,
-         title: 'Com Estatísticas',
-         render: (data?: any) =>
-           Array.isArray(data) ? data.length.toString() : 'N/A',
-       },
+         render: (data?: any) => data?.data?.total?.toString() ?? 'N/A',
+       }
      ],
    },
    tableHeaders: ['ID', 'Nome', 'Tipo', 'Distância da Terra'],
@@ -70,7 +63,7 @@ const cardConfigs: CardConfig<any>[] = [
          queryKey: ['planetsCount'],
          queryFn: api.getPlanetsCount,
          title: 'Total',
-         render: (data?: any) => data?.total?.toString() ?? 'N/A',
+         render: (data?: any) => data?.data?.total?.toString() ?? 'N/A',
        },
        {
          queryKey: ['habitablePlanetsCount'],
@@ -102,7 +95,7 @@ const cardConfigs: CardConfig<any>[] = [
          queryKey: ['starsCount'],
          queryFn: api.getStarsCount,
          title: 'Total',
-         render: (data?: any) => data?.total?.toString() ?? 'N/A',
+         render: (data?: any) => data?.data?.total?.toString() ?? 'N/A',
        },
        {
          queryKey: ['brightestStar'],
@@ -134,7 +127,7 @@ const cardConfigs: CardConfig<any>[] = [
          queryKey: ['exoplanetsCount'],
          queryFn: api.getExoplanetsCount,
          title: 'Total',
-         render: (data?: any) => data?.total?.toString() ?? 'N/A',
+         render: (data?: any) => data?.data?.total?.toString() ?? 'N/A',
        },
        {
          queryKey: ['largestExoplanet'],
@@ -172,7 +165,7 @@ const cardConfigs: CardConfig<any>[] = [
          queryKey: ['elementsCount'],
          queryFn: api.getElementsCount,
          title: 'Total',
-         render: (data?: any) => data?.total?.toString() ?? 'N/A',
+         render: (data?: any) => data?.data?.total?.toString() ?? 'N/A',
        },
        {
          queryKey: ['mostCommonElement'],
@@ -203,7 +196,7 @@ const cardConfigs: CardConfig<any>[] = [
          queryKey: ['clustersCount'],
          queryFn: api.getClustersCount,
          title: 'Total',
-         render: (data?: any) => data?.total?.toString() ?? 'N/A',
+         render: (data?: any) => data?.data?.total?.toString() ?? 'N/A',
        },
        {
          queryKey: ['closestCluster'],
@@ -235,7 +228,7 @@ const cardConfigs: CardConfig<any>[] = [
          queryKey: ['nebulaeCount'],
          queryFn: api.getNebulaeCount,
          title: 'Total',
-         render: (data?: any) => data?.total?.toString() ?? 'N/A',
+         render: (data?: any) => data?.data?.total?.toString() ?? 'N/A',
        },
        {
          queryKey: ['closestNebula'],
