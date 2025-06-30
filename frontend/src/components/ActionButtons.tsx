@@ -3,7 +3,11 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { notifications } from '@mantine/notifications';
 import { createDatabase, insertData } from '../services/api';
 
-export function ActionButtons() {
+interface ActionButtonsProps {
+  onAddClick: () => void;
+}
+
+export function ActionButtons({ onAddClick }: ActionButtonsProps) {
   const queryClient = useQueryClient();
 
   const mutationOptions = {
@@ -48,6 +52,9 @@ export function ActionButtons() {
         color="teal"
       >
         Adicionar Dados
+      </Button>
+      <Button onClick={onAddClick} color="blue" leftSection="+">
+        Adicionar Item
       </Button>
     </Group>
   );
